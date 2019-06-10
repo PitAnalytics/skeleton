@@ -1,0 +1,29 @@
+{
+    "database":{
+
+        "test":{
+            
+            "database_type":"mysql",
+            "database_name":"TEST",
+            "server":"localhost",
+            "username":"root",
+            "password":"Pit2018mtv#@"
+            
+        }
+
+    },
+    "app":{
+
+        "name":"aig",
+        "url":"http://localhost/skeleton/public"
+
+    },
+    "google":{
+
+        "bigquery":{
+            "projectId":"informe-211921"
+        }
+        
+    }
+
+}
