@@ -6,7 +6,7 @@ use Psr\Container\ContainerInterface as Container;
 
 class BigQueryController extends Controller{
     
-    private $bigquery;
+    protected $bigquery;
 
     public function __construct(Container $container){
 
