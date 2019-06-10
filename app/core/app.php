@@ -28,7 +28,9 @@ $app->get('/', \App\Controllers\TestController::class.':wellcome');
 $app->get('/test', \App\Controllers\TestController::class.':index');
 $app->get('/config', \App\Controllers\TestController::class.':config');
 //
-$app->get('/bigquery/{query}', \App\Controllers\BigQueryController::class.':query');
+
+//opcionales
+//$app->get('/bigquery/{query}', \App\Controllers\BigQueryController::class.':query');
 //
 /******************/
 /****EJECUTAMOS****/
