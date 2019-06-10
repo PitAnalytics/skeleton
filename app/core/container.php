@@ -35,7 +35,7 @@ $container['test']=function($container){
 
 //uncoment to add optional dependencies
 
-/*
+
 $container['bigquery']=function($container){
 
     return function($config){
@@ -45,6 +45,6 @@ $container['bigquery']=function($container){
     };
 
 };
-*/
+
 
 ?>
