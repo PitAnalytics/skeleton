@@ -7,7 +7,7 @@
             "database_name":"TEST",
             "server":"localhost",
             "username":"root",
-            "password":"Pit2018mtv#@"
+            "password":""
             
         }
 
@@ -17,13 +17,6 @@
         "name":"aig",
         "url":"http://localhost/skeleton/public"
 
-    },
-    "google":{
-
-        "bigquery":{
-            "projectId":"informe-211921"
-        }
-        
     }
 
 }
