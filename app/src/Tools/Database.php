@@ -28,6 +28,31 @@ class Database extends Medoo{
         parent::__construct($options);
 
     }
+
+    public function validate($table,$fields,$register){
+
+        $_register=$this->get($table,[$fields['identity'],$fields['password']],[$fields['identity']=>$register['identity']]);
+
+        if(!isset($_register[$fields['identity']])){
+
+            return -1;
+
+        }
+        else{
+
+            if($register['password']===$_register['password']){
+
+                return 1;
+
+            }else{
+
+                return 0;
+
+            }
+
+        }
+
+    }
     
 }
 

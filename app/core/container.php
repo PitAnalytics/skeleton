@@ -47,4 +47,15 @@ $container['bigquery']=function($container){
 };
 */
 
+//
+$container['guzzle']=function(){
+
+    return function($settings){
+
+        return new GuzzleHttp\Client($settings);
+
+    };
+
+};
+
 ?>

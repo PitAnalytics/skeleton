@@ -10,6 +10,7 @@ abstract class Controller{
     protected $config;
     protected $database;
     protected $bigquery;
+    protected $guzzle;
 
     public abstract function __construct(Container $container);
 

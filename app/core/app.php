@@ -38,5 +38,4 @@ $app->get('/config', \App\Controllers\TestController::class.':config');
 /******************/
 $app->run();
 
-
 ?>
