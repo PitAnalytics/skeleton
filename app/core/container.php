@@ -17,7 +17,7 @@ $container['database']=function($container){
 
     return function($config){
 
-        return App\Tools\Database::instanciate($config);
+        return App\Tools\DatabasePool::instanciate($config);
 
     };
 
@@ -28,6 +28,16 @@ $container['test']=function($container){
     return function($database){
 
         return new App\Modules\Test($database);
+
+    };
+
+};
+//
+$container['test-bis']=function($container){
+
+    return function($database){
+
+        return new App\Modules\TestBis($database);
 
     };
 
@@ -46,16 +56,5 @@ $container['bigquery']=function($container){
 
 };
 */
-
-//
-$container['guzzle']=function(){
-
-    return function($settings){
-
-        return new GuzzleHttp\Client($settings);
-
-    };
-
-};
 
 ?>

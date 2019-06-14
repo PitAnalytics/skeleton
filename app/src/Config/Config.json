@@ -9,6 +9,15 @@
             "username":"root",
             "password":""
             
+        },
+        "test-bis":{
+            
+            "database_type":"mysql",
+            "database_name":"TESTBIS",
+            "server":"localhost",
+            "username":"root",
+            "password":""
+            
         }
 
     },

@@ -8,9 +8,9 @@ abstract class Controller{
 
     protected $container;
     protected $config;
-    protected $database;
+    protected $databases=[];
     protected $bigquery;
-    protected $guzzle;
+    protected $auth;
 
     public abstract function __construct(Container $container);
 
