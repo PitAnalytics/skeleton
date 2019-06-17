@@ -11,7 +11,7 @@ class Socket extends Client{
   protected static $instances=[];
 
   //funcion que devuelve instancias clasificadas
-  public static function instanciate(string $host,array $instances){
+  public static function instanciate(array $instances){
 
     //obtenemos llave y settings de instancia
     $key=key($instances);
@@ -20,7 +20,7 @@ class Socket extends Client{
     //en caso de no existir la instancia especificada se crea una nueva instancia especifica
     if (!isset(self::$instances[$key])){
 
-      self::$instances[$key] = new self(new Engine($host,$settings));
+      self::$instances[$key] = new self(new Engine($settings));
      
     }
     //retornamos la instancia pedida
@@ -29,6 +29,5 @@ class Socket extends Client{
   }
   
 }
-
 
 ?>

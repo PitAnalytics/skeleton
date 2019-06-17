@@ -42,6 +42,16 @@ $container['test-bis']=function($container){
     };
 
 };
+//
+$container['socket']=function($container){
+
+    return function($instance){
+
+        return App\Tools\Socket::instanciate($instance);
+
+    };
+
+};
 
 
 

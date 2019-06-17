@@ -31,10 +31,14 @@ $app->get('/test', \App\Controllers\TestController::class.':index');
 $app->get('/config', \App\Controllers\TestController::class.':config');
 $app->get('/test-bis', \App\Controllers\TestController::class.':indexBis');
 $app->get('/test-dual', \App\Controllers\TestController::class.':indexDual');
+$app->get('/test-socket', \App\Controllers\TestController::class.':socket');
+
 //
 //opcionales
 //$app->get('/bigquery/{query}', \App\Controllers\BigQueryController::class.':query');
 //
+
+
 /******************/
 /****EJECUTAMOS****/
 /******************/

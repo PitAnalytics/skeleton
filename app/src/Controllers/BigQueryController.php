@@ -6,7 +6,6 @@ use Psr\Container\ContainerInterface as Container;
 
 class BigQueryController extends Controller{
     
-
     public function __construct(Container $container){
 
         //instanciamos container y llamamos conexion a bigquery
@@ -27,10 +26,10 @@ class BigQueryController extends Controller{
         ->withHeader('Access-Control-Allow-Origin', '*')
         ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
 
+        //imprimimos respuesta al retornarla
         return $response2;
 
     }
-
 
 }
 

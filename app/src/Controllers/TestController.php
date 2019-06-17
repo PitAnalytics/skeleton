@@ -21,6 +21,8 @@ class TestController extends Controller{
         $this->test=$this->container['test']($this->databases['test']);
         $this->test1=$this->container['test-bis']($this->databases['test-bis']);
 
+        $this->sockets['io']=$this->container['socket'](['io'=>'http://localhost:4000']);
+
     }
 
     //probamos argumentos
@@ -40,8 +42,10 @@ class TestController extends Controller{
     //funcion solo para testing
     public function config($request,$response,$args){
 
+        //
         $config=$this->config->index();
 
+        //
         $response1 = $response->withJson($config,201);
         $response2 = $response1
         ->withHeader('Access-Control-Allow-Origin', '*')
@@ -54,6 +58,7 @@ class TestController extends Controller{
     //tabla de prueba
     public function index($request,$response,$args){
 
+        //
         $index = $this->test->index();
 
         //imprimimos como json la tabla de prueba
@@ -69,6 +74,7 @@ class TestController extends Controller{
     //pedimos la otra base y la otra tabla
     public function indexBis($request,$response,$args){
 
+        //
         $index = $this->test1->index();
 
         //respuesta con cabeceras http
@@ -84,8 +90,10 @@ class TestController extends Controller{
     //tabla pivot a partir de 2 bases de datos
     public function indexDual($request,$response,$args){
 
+        //
         $index = [0=>['numbers'=>$this->test->index()],1=>['fruits'=>$this->test1->index()]];
 
+        //
         $response1 = $response->withJson($index,201);
         $response2 = $response1
         ->withHeader('Access-Control-Allow-Origin', '*')
@@ -94,6 +102,16 @@ class TestController extends Controller{
         return $response2;
         
     }
+
+    //
+    public function socket($request,$response,$args){
+
+        $this->sockets['io']->initialize();
+        $this->sockets['io']->emit('test',["test"=>"hola"]);
+        $this->sockets['io']->close();
+
+    }
+    
 }
 
 ?>
