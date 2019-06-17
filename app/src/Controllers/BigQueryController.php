@@ -9,6 +9,7 @@ class BigQueryController extends Controller{
 
     public function __construct(Container $container){
 
+        //instanciamos container y llamamos conexion a bigquery
         $this->container=$container;
         $this->config=$this->container['config'];
         $this->bigquery=$this->container['bigquery']($this->config->google('bigquery'));
@@ -17,23 +18,11 @@ class BigQueryController extends Controller{
 
     public function query($request,$response,$args){
 
-
+        //pedimos query via argumentos en url
         $result = $this->bigquery->query($args['query']);
 
+        //imprimimos resultado como json con cabeceras
         $response1 = $response->withJson($result,201);
-        $response2 = $response1
-        ->withHeader('Access-Control-Allow-Origin', '*')
-        ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-
-        return $response2;
-
-    }
-
-    public function config($request,$response,$args){
-
-        $config=$this->config->index();
-
-        $response1 = $response->withJson($config,201);
         $response2 = $response1
         ->withHeader('Access-Control-Allow-Origin', '*')
         ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');

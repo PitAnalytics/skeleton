@@ -43,10 +43,12 @@ $container['test-bis']=function($container){
 
 };
 
+
+
 //uncoment to add optional dependencies
 
 /*
-$container['bigquery']=function($container){
+$container['bigquery-parser']=function($container){
 
     return function($config){
 
