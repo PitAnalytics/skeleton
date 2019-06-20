@@ -8,8 +8,10 @@ class BigQueryController extends Controller{
     
     public function __construct(Container $container){
 
-        //instanciamos container y llamamos conexion a bigquery
+        //container instance by dependency injection
         $this->container=$container;
+
+        //config by default
         $this->config=$this->container['config'];
         $this->bigquery=$this->container['bigquery']($this->config->google('bigquery'));
 

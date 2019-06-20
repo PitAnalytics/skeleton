@@ -31,13 +31,6 @@ class DatabasePool extends Medoo{
 
     }
 
-    //por herencia no fue posible hacer privado el constructor
-    public function __construct(array $options){
-
-        parent::__construct($options);
-
-    }
-
     //funcion para validar passwords
     public function validate($table,$fields,$register){
 

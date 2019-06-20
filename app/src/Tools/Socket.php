@@ -1,5 +1,8 @@
 <?php
 
+/**MULTITON INSTANCE FOR ELEPHANT.IO
+ * 
+ */
 namespace App\Tools;
 
 use ElephantIO\Client;
