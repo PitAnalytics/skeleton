@@ -53,10 +53,7 @@ $container['socket']=function($container){
 
 };
 
-
-
 //uncoment to add optional dependencies
-
 /*
 $container['bigquery-parser']=function($container){
 

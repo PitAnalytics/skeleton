@@ -38,7 +38,6 @@ $app->get('/test-socket', \App\Controllers\TestController::class.':socket');
 //$app->get('/bigquery/{query}', \App\Controllers\BigQueryController::class.':query');
 //
 
-
 /******************/
 /****EJECUTAMOS****/
 /******************/
