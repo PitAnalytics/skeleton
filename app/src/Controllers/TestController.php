@@ -20,9 +20,43 @@ class TestController extends Controller{
         $this->databases['test-bis']=$this->container['database'](['test-bis'=>$this->config->database('test-bis')]);
         $this->test=$this->container['test']($this->databases['test']);
         $this->test1=$this->container['test-bis']($this->databases['test-bis']);
-
         $this->sockets['io']=$this->container['socket'](['io'=>'http://localhost:4000']);
 
+    }
+
+    //autentificacion para pedir datos header Auth:{"user":"","password":""}
+    public function auth($request,$response,$args){
+
+        $auth=json_decode($request->getHeaderLine('Auth'),true);
+        $this->auth=$this->container['auth']($this->databases['test']);
+        $validation = $this->auth->validate($auth['user'],$auth['password']);
+
+
+        if($validation===1){
+
+            $index = $this->test->index();
+
+            //imprimimos como json la tabla de prueba
+            $response1 = $response->withJson($index,201);
+            $response2 = $response1
+            ->withHeader('Access-Control-Allow-Origin', '*')
+            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    
+            return $response2;
+
+        }
+
+        else{
+
+            //imprimimos como json la tabla de prueba
+            $response1 = $response->withJson(['response'=>'access denied'],300);
+            $response2 = $response1
+            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    
+            return $response2;
+
+        }
+  
     }
 
     //probamos argumentos
@@ -42,7 +76,6 @@ class TestController extends Controller{
     //funcion solo para testing
     public function config($request,$response,$args){
 
-        //
         $config=$this->config->index();
 
         //
@@ -58,7 +91,6 @@ class TestController extends Controller{
     //tabla de prueba
     public function index($request,$response,$args){
 
-        //
         $index = $this->test->index();
 
         //imprimimos como json la tabla de prueba
@@ -90,10 +122,8 @@ class TestController extends Controller{
     //tabla pivot a partir de 2 bases de datos
     public function indexDual($request,$response,$args){
 
-        //
         $index = [0=>['numbers'=>$this->test->index()],1=>['fruits'=>$this->test1->index()]];
 
-        //
         $response1 = $response->withJson($index,201);
         $response2 = $response1
         ->withHeader('Access-Control-Allow-Origin', '*')

@@ -16,12 +16,12 @@ $app = new \Slim\App([
     ]
 
 ]);
-//
+
 /*********************/
 /******CONTAINER******/
 /*********************/
 require_once '../app/core/container.php';
-//
+
 /******************/
 /****ROUTER********/
 /******************/
@@ -32,7 +32,7 @@ $app->get('/config', \App\Controllers\TestController::class.':config');
 $app->get('/test-bis', \App\Controllers\TestController::class.':indexBis');
 $app->get('/test-dual', \App\Controllers\TestController::class.':indexDual');
 $app->get('/test-socket', \App\Controllers\TestController::class.':socket');
-
+$app->get('/test-auth', \App\Controllers\TestController::class.':auth');
 //
 //opcionales
 //$app->get('/bigquery/{query}', \App\Controllers\BigQueryController::class.':query');
