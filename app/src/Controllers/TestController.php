@@ -41,7 +41,6 @@ class TestController extends Controller{
             $response2 = $response1
             ->withHeader('Access-Control-Allow-Origin', '*')
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-    
             return $response2;
 
         }
@@ -52,7 +51,6 @@ class TestController extends Controller{
             $response1 = $response->withJson(['response'=>'access denied'],300);
             $response2 = $response1
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
-    
             return $response2;
 
         }
@@ -62,6 +60,7 @@ class TestController extends Controller{
     //probamos argumentos
     public function echo($request,$response,$args){
 
+        //
         echo("wellcome ".$args['name']);
 
     }
@@ -69,6 +68,7 @@ class TestController extends Controller{
     //hola mundo
     public function wellcome($request,$response,$args){
 
+        //
         echo('wellcome');
 
     }
@@ -76,6 +76,7 @@ class TestController extends Controller{
     //funcion solo para testing
     public function config($request,$response,$args){
 
+        //
         $config=$this->config->index();
 
         //
